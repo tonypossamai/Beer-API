@@ -2,6 +2,8 @@ body {
     width: 100%;
 }
 
+/* Header  */
+
 header {
     background-color: black;
     display: grid;
@@ -17,7 +19,6 @@ header {
         grid-column-start: 2;
         margin-top: 20px;
     }
-
     nav {
         display: grid;
         align-items: end;
@@ -41,6 +42,8 @@ header {
 }
 }
 
+/* Beers Section  */
+
 .beers-wrapper {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
@@ -61,28 +64,17 @@ header {
             width: 12%;
         }
         h1 {
-            font-size: $font-title;
-            font-family: $font-family;
-            font-weight: bold;
-            padding: 30px 0px 20px 0px;
+            @extend %h1;
         }
         p {
-            font-size: $font-size;
-            font-family: $font-family;
-            padding: 0px 30px 0px 30px;
-
+            @extend %p;
         }
         .info {
-            display: flex;
-            justify-content: space-between;
-            padding: 30px;
-            font-family: 'Playfair Display';
-            font-size: $font-info;
+            @extend %info;
 
             ul {
                 padding: 20px;
             }
-
             span {
                 font-size: 1.5em;
                 font-weight: 300;
@@ -95,27 +87,219 @@ header {
     }
 }
 
+/* Quick Find Section  */
+
 .find-wrapper {
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-    grid-template-rows: 1fr 1fr 1fr;
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr;
     width: 98%;
-    height: 700px;
+    height: 550px;
     margin: 15px auto;
-    padding: 50px 0px 150px 0px;
+    padding: 50px 0px 50px 0px;
 
     .box {
         background-color: rgb(228, 228, 228);
-        grid-row: 1 / 3;
-        grid-column: 1 / 4;
-    }
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
 
-    button {
-        background-color: orange;
+        img {
+            width: 25%;
+        }
+        .text {
+            width: 30%;
+        }
+        h2 {
+            font-family: $font-family;
+            font-size: $font-size;
+            font-weight: bold;
+            padding: 10px 0px 20px 0px;
+        }
+        p {
+            font-size: $font-size - 0.2;
+            font-family: $font-family;
+        }
+        .info {
+            display: flex;
+            justify-content: space-evenly;
+            padding: 20px 30px 20px 30px;
+            font-family: 'Playfair Display';
+            font-size: $font-info;
+
+            ul {
+                padding: 15px 20px 15px 20px;
+
+                li {
+                    font-size: $font-size - 0.3;    
+                }
+                span {
+                    font-size: 1.5em;
+                    font-weight: 300;
+                }
+            } 
+            .ph {
+                background-color: rgba(255, 196, 0, 0.904);
+                color: white;
+            }   
+        }
+        .ingredients-button {
+            background-color: dodgerblue;
+            color: white;
+            width: 100px;
+            height: 40px;
+            border: none;
+            font-weight: bold;
+
+        }
+    }
+    .give-button {
+        justify-self: center;
+        background-color: rgba(255, 196, 0, 0.904);
+        border: none;
+        font-size: $font-size - 0.2;
+        font-weight: bold;
         color: white;
-        grid-column-start: 2;
-        width: 50%;
+        width: 200px;
         height: 50px;
         margin: 20px;
+        
+    }
+}
+
+/* Pick a Beer Form */
+
+.pick-a-beer{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 1fr;
+    background-color: #F4F4F4;
+    width: 40%;
+    margin: auto;
+    font-family: 'Open Sans';
+    font-weight: 300;
+    font-style: normal;
+    overflow: hidden;
+
+    .form-pick-a-beer{
+        height: 70px;
+    }
+    #text-pick{
+        grid-column: 1;
+        grid-row: 1;
+        color: dodgerblue;
+        font-weight: 600;
+        display: flex;
+        justify-content: center;
+        margin-top: 35px;
+        margin-bottom: 30px;
+    }
+    .name-pick{
+        grid-column-start: 1;
+        grid-column-end: 3;
+        grid-row: 2;
+        justify-self: start;
+        margin-left: 35px;
+
+        input{
+            border: 1px solid rgb(184, 183, 183);
+            height: 30px;
+            width: 180px;
+            margin-left: 10px;
+        }
+    }
+    .hops-pick{
+        grid-column-start: 2;
+        grid-column-end: 4;
+        grid-row: 2;
+        margin-left: 110px;
+        justify-self: center;
+
+        input{
+            border: 1px solid rgb(184, 183, 183);
+            height: 30px;
+            width: 156px;
+            margin-left: 10px;
+        }
+    }
+    .abv-pick{
+        grid-column-start: 1;
+        grid-column-end: 2;
+        grid-row: 3;
+        justify-self: center;
+
+        input{
+            border: 1px solid rgb(184, 183, 183);
+            height: 30px;
+            width: 90px;
+            margin-left: 10px;
+        }
+    }
+    .ibu-pick{
+        grid-column-start: 2;
+        grid-column-end: 3;
+        grid-row: 3;
+        justify-self: center;
+        
+        input{
+            border: 1px solid rgb(184, 183, 183);
+            height: 30px;
+            width: 90px;
+            margin-left: 10px;
+        }
+    }
+    .ebc-pick{
+        grid-column-start: 3;
+        grid-column-end: 4;
+        grid-row: 3;
+        justify-self: center;
+
+        input{
+            border: 1px solid rgb(184, 183, 183);
+            height: 30px;
+            width: 90px;
+            margin-left: 10px;
+        }
+    }
+    .button-pick-a-beer{
+        grid-column-start: 3;
+        grid-column-end: 4;
+        grid-row: 4;
+        justify-self: center;
+        padding: 0px 0px 20px 50px;
+
+
+        button{
+        background-color: dodgerblue;
+        padding: 10px 13px;
+        color: white;
+        border:none;
+        font-family: 'Open Sans';
+        font-weight: 600;
+        font-style: normal;
+        font-size: 12px;
+        }
+    }
+  }
+
+footer {
+    display: flex;
+    justify-content: center;
+    padding: 50px;
+    font-family: $font-family;
+
+    .pagination {
+        display: inline-block;
+    }
+    .pagination a {
+        color: black;
+        float: left;
+        padding: 8px 16px;
+        text-decoration: none;
+    }
+    .pagination a:hover:not(.active) {
+        background-color: dodgerblue;
+        color: white;
     }
 }
