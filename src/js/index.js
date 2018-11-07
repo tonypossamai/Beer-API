@@ -34,6 +34,7 @@ $(document).ready(() => {
                     </div>
                     </div>`
                     }
+
         getRandomBeer() {
             return `<div class="find-wrapper">
                         <div class="box2">
@@ -44,6 +45,7 @@ $(document).ready(() => {
                 
                             <div class="text">
                                 <h2>${this.name}</h2>
+                                <h3>${this.tagline}</h3>
                                 <p>${this.description}</p>
                     
                                 <div class="info">
@@ -67,8 +69,8 @@ $(document).ready(() => {
                         </div>
                         <button class="give-button">GIVE ME ANOTHER BEER</button>
                     </div>`
-        }
-                };
+                }
+    };
 
     class Ingredients {
         constructor (malt, hops, yeast) {
@@ -92,7 +94,7 @@ $(document).ready(() => {
                                 <li>${this.hops}</li>
                             </ul>
                             <ul class="yeast">
-                                <li><span>Yeast</span></li>
+                                <li><span>Yeast:</span></li>
                                 <li>${this.yeast}</li>
                             </ul>
                         </div>
@@ -100,8 +102,60 @@ $(document).ready(() => {
                     }
                 };
 
+// Running the same API from the 'beer-wrapper' to create functions for each button on the nav menu
 
-// API to get all the beers 
+    $.ajax({
+        url: "https://api.punkapi.com/v2/beers?page=1&per_page=6",
+        method: 'GET',
+    }).done(function(data) {
+
+    for (let i = 0; i < data.length; i++) {
+        let beer = new BeerData (data[i].image_url, data[i].name, data[i].description, data[i].abv, data[i].ibu, data[i].ph);
+        $('.beers-wrapper').append(beer.getBeerData()); 
+        $('.find-section').css('display', 'none');   
+        $('.pick-a-beer').css('display', 'none');
+        $('.pop-up').css('display', 'none');   
+        $('.cover').css('display', 'none');
+    }
+});
+
+    $('.beers-button').on('click', function() {
+        $('.beers-section').css('display', 'grid');
+        $('.find-section').css('display', 'none');
+        $('.pick-a-beer').css('display', 'none');
+        $('footer').css('display','flex');
+        $('.pop-up').css('display', 'none'); 
+
+    })
+
+    $('.find-button').on('click', function() {
+        $('.find-section').css('display', 'grid');
+        $('.beers-section').css('display', 'none');
+        $('.pick-a-beer').css('display', 'none');
+        $('footer').css('display','none');
+        $('.pop-up').css('display', 'none'); 
+    })
+
+    $('.pick-button').on('click', function() {
+        $('.pick-a-beer').css('display', 'grid');
+        $('.beers-section').css('display', 'none');
+        $('.find-section').css('display', 'none');
+        $('footer').css('display','none');
+        $('.pop-up').css('display', 'none'); 
+    })  
+
+    $('body').on('click', '.ingredients-button', function() {
+        $('.pop-up').css('display', 'grid');     
+        $('.cover').css('display', 'grid'); 
+    })
+
+    $('body').on('click', '.closing-button', function() { // Activating closing button
+        $('.pop-up').css('display', 'none');   
+        $('.cover').css('display', 'none');  
+
+    })
+
+// API beer-wrapper to get all the beers 
 
 function loadPages(){ // Function to load beer pages when clicking on pagination
     var url = 'https://api.punkapi.com/v2/beers'
@@ -118,13 +172,13 @@ function loadPages(){ // Function to load beer pages when clicking on pagination
 
     for (let i = 0; i < data.length; i++) {
         let beer = new BeerData (data[i].image_url, data[i].name, data[i].description, data[i].abv, data[i].ibu, data[i].ph);
-        $('.beers-wrapper').append(beer.getBeerData());   
+        $('.beers-wrapper').append(beer.getBeerData()); 
     }
 });
 
 };
 
-// PAGINATION 
+// Pagination
 
         $('body').on('click', '.page-button', function(){ // Click function for page numbers 1 to 6.
             $('.page-button').removeClass('active');
@@ -147,9 +201,7 @@ function loadPages(){ // Function to load beer pages when clicking on pagination
             loadPages();
         })
 
-// PICK A BEER SECTION - RANDOM API
-
-     $.ajax({
+    $.ajax({
         url: 'https://api.punkapi.com/v2/beers/random',
         method: 'GET',
 
@@ -161,6 +213,26 @@ function loadPages(){ // Function to load beer pages when clicking on pagination
     }
 
 })
+
+// QUICK FIND SECTION - RANDOM API
+
+    $('body').on('click', '.give-button', function(){
+
+    $.ajax({
+    url: 'https://api.punkapi.com/v2/beers/random',
+    method: 'GET',
+
+    }).done(function(data) {
+        $('.find-wrapper').empty();
+
+    for (let i = 0; i < data.length; i++) {
+        let beer = new BeerData (data[i].image_url, data[i].name, data[i].description, data[i].abv, data[i].ibu, data[i].ph, data[i].tagline);
+        $('.find-wrapper').append(beer.getRandomBeer());   
+    }
+
+    })
+})
+
                     
     // FUNCTION TO RUN AT THE END OF THE FILE
 
