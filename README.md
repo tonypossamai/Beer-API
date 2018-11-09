@@ -2,20 +2,16 @@
 <br>
 <br>
 
----
-## 1.The Project
 
----
-## 2.Used Tools
+### 1.The Project
 
----
-## 3.Personal Learnings
+### 2.Used Tools
 
----
-## 4.Website Link
+### 3.Personal Learnings
 
----
-## 5.Screenshots
+### 4.Website Link
+
+### 5.Screenshots
 <br>
 <br>
 
@@ -23,12 +19,10 @@
 ## 1.The Project
 
 The project consists of a beer guide wesite. The existant content is been requested through API's from Brewdog Beer Company. 
-<br>
+
 Following the project requirements, each page gives the user different types of detailed information about Brewdog beers. In the home page (also the "beer" button in the nav menu), the user is able to navigate around six pages showing different types of beers. The "quick find" section allows users to get random beers and also information about its ingredients. The "pick a beer" section is a form where the user can pick a specify beer by filling in the required information fields.
 <br>
 <br>
-
-
 
 ---
 ## 2.Used Tools
