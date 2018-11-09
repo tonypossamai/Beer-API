@@ -1,20 +1,25 @@
 # Beer API Website Project
 <br>
 <br>
+
 ---
 ## 1.The Project
+
 ---
 ## 2.Used Tools
+
 ---
 ## 3.Personal Learnings
+
 ---
 ## 4.Website Link
+
 ---
 ## 5.Screenshots
 <br>
 <br>
----
 
+---
 ## 1.The Project
 
 The project consists of a beer guide wesite. The existant content is been requested through API's from Brewdog Beer Company. 
