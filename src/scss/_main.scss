@@ -14,11 +14,11 @@ body {
 /* Header  */
 
 header {
-    background-color: rgb(0, 0, 0);
+    background-color: $black-color;
     display: grid;
     justify-items: center;
     grid-template-columns: 1fr 1fr 1fr;
-    border-bottom: 30px solid rgb(0, 0, 0);
+    border-bottom: 30px solid $black-color;
 
     .logo {
         background-image: url(/images/logo.png);
@@ -38,14 +38,14 @@ header {
         margin: 0px 8px 30px 8px;
 
         a {
-        font-family: 'Open Sans';
+        font-family: $font-family;
         font-weight: bold;
         font-size: $font-size;
         color: white;
         text-decoration: none;
         }
         a:hover {
-            color: rgb(30, 143, 255);
+            color: $blue-color;
         }
     }
 }
@@ -62,7 +62,7 @@ header {
     margin: 15px auto;
 
     .box1 {
-        background-color: rgb(228, 228, 228);
+        background-color: $grey-bg;
         display: flex;
         flex-direction: column;
         justify-content: center;
@@ -80,11 +80,7 @@ header {
             @extend %p;
         }
         .info {
-            display: flex;
-            justify-content: flex-end;
-            padding: 30px;
-            font-family: 'Playfair Display';
-            font-size: $font-info;
+            @extend %beers-section-info;
 
             ul {
                 padding: 20px;
@@ -94,7 +90,7 @@ header {
                 font-weight: 300;
             }
             .ph {
-                background-color: rgba(255, 196, 0, 0.904);
+                background-color: $orange-color;
                 color: rgb(255, 255, 255);
             }
         }
@@ -110,7 +106,7 @@ header {
     margin: 7px auto;
 
     .box2 {
-        background-color: rgb(228, 228, 228);
+        background-color: $grey-bg;
         display: flex;
         justify-content: center;
         align-items: center;
@@ -123,27 +119,16 @@ header {
             width: 30%;
         }
         h2 {
-            font-family: $font-family;
-            font-size: $font-size;
-            font-weight: bold;
-            padding: 10px 0px 0px 0px;
+            @extend %h2;    
         }
         h3 {
-            font-family: $font-family;
-            font-size: $font-size;
-            color: rgb(30, 143, 255);
-            padding: 10px;
+            @extend %h3;
         }
         p {
             @extend %p;
         }
         .info {
-            display: flex;
-            justify-content: space-evenly;
-            align-items: flex-end;
-            padding: 20px 30px 20px 30px;
-            font-family: 'Playfair Display';
-
+            @extend %random-section-info;
 
             ul {
                 padding: 15px 20px 15px 20px;
@@ -157,12 +142,12 @@ header {
                 }
             } 
             .ph {
-                background-color: rgba(255, 196, 0, 0.904);
+                background-color: $orange-color;
                 color: rgb(255, 255, 255);
             }   
         }
         .ingredients-button {
-            background-color: rgb(30, 143, 255);
+            background-color: $blue-color;
             color: white;
             width: 100px;
             height: 40px;
@@ -171,12 +156,12 @@ header {
             font-weight: bold;
         }
         .ingredients-button:hover {
-            background-color: rgb(0, 110, 219);
+            background-color: $blue-color;
         }
     }
     .give-button {
         justify-self: center;
-        background-color: rgba(255, 196, 0, 0.904);
+        background-color: $orange-color;
         border: none;
         outline: none;
         font-size: $font-size - 0.2;
@@ -195,11 +180,11 @@ header {
 
 .pick-a-beer{
     display: grid;
-    background-color: rgb(228, 228, 228);
+    background-color: $grey-bg;
     width: 600px;
     margin: 15px auto;
     margin-bottom: 150px;
-    font-family: 'Open Sans';
+    font-family: $font-family;
     font-style: normal;
     overflow: hidden;
 
@@ -209,7 +194,7 @@ header {
     #text-pick{
         grid-column: 1;
         grid-row: 1;
-        color: rgb(30, 143, 255);
+        color: $blue-color;
         font-weight: 600;
         display: flex;
         justify-content: center;
@@ -224,7 +209,7 @@ header {
         margin-left: 35px;
 
         input{
-            border: 1px solid rgb(184, 183, 183);
+            border: $input-border;
             height: 30px;
             width: 180px;
             margin-left: 10px;
@@ -238,7 +223,7 @@ header {
         justify-self: center;
 
         input{
-            border: 1px solid rgb(184, 183, 183);
+            border: $input-border;
             height: 30px;
             width: 156px;
             margin-left: 10px;
@@ -251,7 +236,7 @@ header {
         justify-self: center;
 
         input{
-            border: 1px solid rgb(184, 183, 183);
+            border: $input-border;
             height: 30px;
             width: 90px;
             margin-left: 10px;
@@ -264,7 +249,7 @@ header {
         justify-self: center;
         
         input{
-            border: 1px solid rgb(184, 183, 183);
+            border: $input-border;
             height: 30px;
             width: 90px;
             margin-left: 10px;
@@ -277,7 +262,7 @@ header {
         justify-self: center;
 
         input{
-            border: 1px solid rgb(184, 183, 183);
+            border: $input-border;
             height: 30px;
             width: 90px;
             margin-left: 10px;
@@ -292,12 +277,12 @@ header {
 
 
         button{
-        background-color: rgb(30, 143, 255);
+        background-color: $blue-color;
         padding: 10px 13px;
-        color: white;
+        color: rgb(255, 255, 255);
         border:none;
         outline: none;
-        font-family: 'Open Sans';
+        font-family: $font-family;
         font-weight: 600;
         font-style: normal;
         font-size: 12px;
@@ -308,7 +293,7 @@ header {
     }
 }
 
-  /* Ingredients Pop-up */
+  /* Ingredients Pop-up Window */
 
 .pop-up {
     background-color: rgb(228, 228, 228);
@@ -324,9 +309,9 @@ header {
 
 
     .pop-up-header {
-        background-color: rgb(30, 144, 255);
+        background-color: $blue-color;
         height: 50px;
-        color: white;
+        color: rgb(255, 255, 255);
         display: flex;
         justify-content: space-between;
         align-items: center;
@@ -357,16 +342,16 @@ footer {
         display: inline-block;
     }
     .pagination a {
-        color: rgb(0, 0, 0);
+        color: $black-color;
         float: left;
         padding: 8px 16px;
         text-decoration: none;
     }
     .pagination a:hover:not(.active) {
-        background-color: rgb(30, 144, 255);
+        background-color: $blue-color;
         color: white;
     }
     .active {
-        background-color: rgb(30, 144, 255);
+        background-color: $blue-color;
     }
 }

@@ -1,9 +1,17 @@
-%info {
+%beers-section-info {
     display: flex;
     justify-content: space-between;
     padding: 30px;
-    font-family: 'Playfair Display';
+    font-family: $extra-font;
     font-size: $font-info;
+}
+
+%random-section-info{
+    display: flex;
+    justify-content: space-evenly;
+    align-items: flex-end;
+    padding: 20px 30px 20px 30px;
+    font-family: $extra-font;
 }
 
 %h1 {
@@ -11,6 +19,20 @@
     font-family: $font-family;
     font-weight: bold;
     padding: 30px 0px 20px 0px;
+}
+
+%h2 {
+    font-family: $font-family;
+    font-size: $font-size;
+    font-weight: bold;
+    padding: 10px 0px 0px 0px;
+}
+
+%h3 {
+    font-family: $font-family;
+    font-size: $font-size;
+    color: rgb(30, 143, 255);
+    padding: 10px;
 }
 
 %p {
