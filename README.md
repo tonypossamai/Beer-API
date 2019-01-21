@@ -51,7 +51,7 @@ Using JS I managed to create ES2015 class constructor and methods, used the "new
 ----
 ## 4. Website Link
 
-You can check the final result of my project by clicking [here](https://github.com/tonypossamai/Beer-API.git)
+You can check the final result of my project by clicking [here](https://tonypossamai.github.io/Beer-API/)
 <br>
 <br>
 
