@@ -1,7 +1,3 @@
----
-permalink: /index.js
----
-
 # Beer API Website Project
 <br>
 <br>
