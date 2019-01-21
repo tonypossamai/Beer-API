@@ -1,3 +1,7 @@
+---
+permalink: /index.html
+---
+
 # Beer API Website Project
 <br>
 <br>
